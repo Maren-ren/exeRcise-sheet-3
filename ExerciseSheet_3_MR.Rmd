@@ -89,6 +89,8 @@ GitHub repository and track them in git.
 Link:
 <https://github.com/rfordatascience/tidytuesday/tree/main/data/2025/2025-03-11>
 
+
+
 For small datasets like these adding them to git is not a problem.
 
 a)  Load the `pixar_films` dataset into R. Clean the dataset by removing
@@ -96,7 +98,18 @@ a)  Load the `pixar_films` dataset into R. Clean the dataset by removing
     the possible values and what do they mean? Create a factor variable
     for the film rating. Why is this appropriate?
 
-<!-- -->
+```{r}
+library(tidyverse)
+
+pixar_films <- read_csv("pixar_films.csv")
+
+pixar_films_clean <- pixar_films %>% filter(!is.na(film))
+
+unique(pixar_films_clean$film_rating)
+pixar_films_clean$film_rating <- factor(pixar_films_clean$film_rating, levels = c("G", "PG"))
+
+```
+It is appropriate because the film rating follows a logical order, so it is easier to analyze it, if it is a factor an not a character.
 
 b)  Inspect the film titles manually. Which films form a film series? A
     film series can be identified by a common word in the titles of the
