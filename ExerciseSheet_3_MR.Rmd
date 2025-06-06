@@ -191,8 +191,8 @@ ggplot(film_data) +
 
 ```
 
-
-In moste series we see that the rotten tomate score goes down for the newer serie parts.
+In moste series we see that the rotten tomate score goes down for the
+newer serie parts.
 
 ## Exercise 4: Open Analysis (4 points)
 
@@ -207,21 +207,24 @@ b)  Download the dataset and track it in git.
 c)  Put the name / title of the dataset and a link to it below.
 
 -   Dataset Name: Natural disasters from 1900 to 2019 - EMDAT (2020)
--   Link: https://github.com/owid/owid-datasets/tree/6155d4ca1ea14ef30e753010a25521eeb416e8a2/datasets/Natural%20disasters%20from%201900%20to%202019%20-%20EMDAT%20(2020) 
-
+-   Link:
+    [https://github.com/owid/owid-datasets/tree/6155d4ca1ea14ef30e753010a25521eeb416e8a2/datasets/Natural%20disasters%20from%201900%20to%202019%20-%20EMDAT%20(2020)](https://github.com/owid/owid-datasets/tree/6155d4ca1ea14ef30e753010a25521eeb416e8a2/datasets/Natural%20disasters%20from%201900%20to%202019%20-%20EMDAT%20(2020)){.uri}
 
 d)  Come up with a (research) question you want to answer with the data
     and briefly explain why you believe this is an interesting question
     within one sentence. It should be a question that can be answered
     with the dataset and using R.
-    
-How did the advancements in building regulations and security measures influence the number of deaths caused by earthquakes. I think it is interesting to see whether this improvements have led to an decrease of the numbers of death by earthquakes.
-    
+
+How did the advancements in building regulations and security measures
+influence the number of deaths caused by earthquakes. I think it is
+interesting to see whether this improvements have led to an decrease of
+the numbers of death by earthquakes.
+
 e)  Use R to answer your chosen question. Please limit your analysis to
     the functions and techniques we have covered so far in the course.
     You are **not expected** to use advanced statistical models or
     external packages which haven't been introduced.
-    
+
 ```{r}
 natural_disaster <- read_csv("Natural disasters from 1900 to 2019 - EMDAT (2020).csv")
 
@@ -236,16 +239,16 @@ earthquakes_data <- earthquakes_data %>%
   mutate(deaths_per_disaster = `Total deaths (EMDAT (2019))` /`Number of disasters (EMDAT (2019))`)
 
 ```
-   
-    
+
 f)  Create a meaningful plot / figure with the dataset. Make sure to
     provide a figure caption (via the chunk options / Rmarkdown) and
     correctly label the figure.
+
 ```{r fig.cap="Deaths per disaster over the years 1900 to 2019"}
 ggplot(earthquakes_data) +
   aes(x = Year, 
       y = deaths_per_disaster) +
-  geom_col( stat = "identity", fill = "blue")+
+  geom_col(fill = "blue")+
   geom_smooth(method = "loess", color = "red", se = FALSE) +
   labs(
     x = "Year",
