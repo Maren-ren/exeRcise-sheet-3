@@ -214,6 +214,9 @@ d)  Come up with a (research) question you want to answer with the data
     and briefly explain why you believe this is an interesting question
     within one sentence. It should be a question that can be answered
     with the dataset and using R.
+    
+How did the advancements in building regulations and security measures influence the number of deaths caused by earthquakes. I think it is interesting to see whether this improvements have led to an decrease of the numbers of death by earthquakes.
+    
 e)  Use R to answer your chosen question. Please limit your analysis to
     the functions and techniques we have covered so far in the course.
     You are **not expected** to use advanced statistical models or
