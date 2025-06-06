@@ -241,6 +241,19 @@ earthquakes_data <- earthquakes_data %>%
 f)  Create a meaningful plot / figure with the dataset. Make sure to
     provide a figure caption (via the chunk options / Rmarkdown) and
     correctly label the figure.
+```{r fig.cap="Deaths per disaster over the years 1900 to 2019"}
+ggplot(earthquakes_data) +
+  aes(x = Year, 
+      y = deaths_per_disaster) +
+  geom_col( stat = "identity", fill = "blue")+
+  geom_smooth(method = "loess", color = "red", se = FALSE) +
+  labs(
+    x = "Year",
+    y = "Deaths per disaster"
+  )+ 
+  theme_minimal()
+
+```
 
 ## Final Note
 
