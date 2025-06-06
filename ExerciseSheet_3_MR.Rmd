@@ -221,6 +221,23 @@ e)  Use R to answer your chosen question. Please limit your analysis to
     the functions and techniques we have covered so far in the course.
     You are **not expected** to use advanced statistical models or
     external packages which haven't been introduced.
+    
+```{r}
+natural_disaster <- read_csv("Natural disasters from 1900 to 2019 - EMDAT (2020).csv")
+
+unique(natural_disaster$Entity)
+
+earthquakes_data <-  natural_disaster %>%
+  filter(Entity == "Earthquake")
+
+summary(earthquakes_data)
+
+earthquakes_data <- earthquakes_data %>%
+  mutate(deaths_per_disaster = `Total deaths (EMDAT (2019))` /`Number of disasters (EMDAT (2019))`)
+
+```
+   
+    
 f)  Create a meaningful plot / figure with the dataset. Make sure to
     provide a figure caption (via the chunk options / Rmarkdown) and
     correctly label the figure.
